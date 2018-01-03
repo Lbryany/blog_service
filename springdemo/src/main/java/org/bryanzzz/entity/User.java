@@ -4,21 +4,6 @@ import java.util.Date;
 
 public class User {
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "userId=" + userId +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", access=" + access +
-                ", avatar='" + avatar + '\'' +
-                ", nickname='" + nickname + '\'' +
-                ", lastLoginTime=" + lastLoginTime +
-                ", createdAt=" + createdAt +
-                ", deleted=" + deleted +
-                '}';
-    }
-
     private long userId;
 
     private String username;
@@ -107,5 +92,20 @@ public class User {
 
     public void setDeleted(int deleted) {
         this.deleted = deleted;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", access=" + access +
+                ", avatar='" + avatar + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", lastLoginTime=" + lastLoginTime +
+                ", createdAt=" + createdAt +
+                ", deleted=" + deleted +
+                '}';
     }
 }
