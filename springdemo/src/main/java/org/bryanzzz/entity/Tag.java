@@ -2,7 +2,7 @@ package org.bryanzzz.entity;
 
 import java.util.Date;
 
-public class tag {
+public class Tag {
 
     private long tagId;
 
@@ -46,7 +46,7 @@ public class tag {
 
     @Override
     public String toString() {
-        return "tag{" +
+        return "Tag{" +
                 "tagId=" + tagId +
                 ", tagName='" + tagName + '\'' +
                 ", user=" + user +
