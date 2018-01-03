@@ -2,6 +2,13 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper>
+<mapper namespace="org.bryanzzz.dao.UserDao">
 
+    <select id="queryByUsername" resultType="org.bryanzzz.entity.User">
+        SELECT * FROM bryanzzz.bryanzzz_user WHERE username = #{username} AND deleted = 0;
+    </select>
+
+    <select id="queryById" resultType="org.bryanzzz.entity.User">
+        SELECT * FROM bryanzzz_user WHERE user_id = #{userId} AND deleted = 0;
+    </select>
 </mapper>

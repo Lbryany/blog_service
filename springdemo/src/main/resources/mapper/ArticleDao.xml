@@ -11,7 +11,7 @@
     </update>
 
     <!--分页获取用户文章-->
-    <select id="getAll" resultType="org.bryanzzz.entityArticle">
+    <select id="getAll" resultType="org.bryanzzz.entity.Article">
         SELECT * FROM bryanzzz_article WHERE user_id = #{userId} ORDER BY created_at DESC
         LIMIT #{offset},#{limit}
     </select>
