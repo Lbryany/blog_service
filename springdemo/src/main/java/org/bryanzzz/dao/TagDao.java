@@ -10,6 +10,8 @@ public interface TagDao {
 
     List<Tag> getTagByUser(long userId);
 
+//    int createTag(Tag tag);
+
 
 
 }

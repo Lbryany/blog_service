@@ -2,6 +2,8 @@ package org.bryanzzz.dao;
 
 import org.bryanzzz.entity.Article;
 
+import java.util.List;
+
 public interface ArticleDao {
 
     /**
@@ -9,7 +11,7 @@ public interface ArticleDao {
      * @param userId
      * @return
      */
-    Article getAll(long userId, int offet, int limit);
+    List<Article> getAll(long userId, int offset, int limit);
 
     /**
      * 更新点击量
