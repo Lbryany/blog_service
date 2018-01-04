@@ -9,6 +9,7 @@ import org.bryanzzz.service.ArticleService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ArticleServiceImpl implements ArticleService {
@@ -28,6 +29,14 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     public int createArticle(ArticleDetail articleDetail) {
+        articleDao.createArticle(articleDetail.getArticle());
+        //TODO 验证tag是否存在，有一个不存在就报错，验证方式为select In  count
+        //构造tagId  List
+        List<Long> tagIds = new ArrayList<Long>();
+        for (Tag tag:articleDetail.getTag()){
+            tagIds.add(tag.getTagId());
+        }
+        tagDao.createTagRelation(tagIds, articleDetail.getArticle().getArticleId());
         return 0;
     }
 

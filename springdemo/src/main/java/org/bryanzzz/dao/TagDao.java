@@ -13,7 +13,7 @@ public interface TagDao {
 
     int createTag(Tag tag);
 
-    int createTagRelation(long tagId, long articleId);
+    int createTagRelation(List<Long> tagId, long articleId);
 
 
 

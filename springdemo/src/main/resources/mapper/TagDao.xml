@@ -25,6 +25,9 @@
         INSERT INTO bryanzzz_article_tag
         ( `article_id`, `tag_id`, created_at)
         VALUES
-        ( #{articleId}, #{tagId}, NOW());
+        <foreach collection="tagId" item="tag" index="index" separator="," >
+            ( #{articleId}, #{tag}, NOW())
+        </foreach>;
+
     </insert>
 </mapper>
