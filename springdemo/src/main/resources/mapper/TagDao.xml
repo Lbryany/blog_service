@@ -15,7 +15,7 @@
     </select>
 
     <insert id="createTag" parameterType="org.bryanzzz.entity.Tag">
-        INSERT INTO bryanzzz_tag
+        INSERT IGNORE INTO bryanzzz_tag
         ( `tag_name`, `user_id`, created_at)
         VALUES
         ( #{tagName}, #{userId}, NOW());
