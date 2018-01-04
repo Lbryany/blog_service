@@ -1,6 +1,7 @@
 package org.bryanzzz.entity;
 
 import java.util.Date;
+import java.util.List;
 
 public class Article {
 
@@ -19,6 +20,8 @@ public class Article {
     private int deleted;
 
     private User user;
+
+    private List<Tag> tag;
 
     public long getArticleId() {
         return articleId;
@@ -84,6 +87,14 @@ public class Article {
         this.user = user;
     }
 
+    public List<Tag> getTag() {
+        return tag;
+    }
+
+    public void setTag(List<Tag> tag) {
+        this.tag = tag;
+    }
+
     @Override
     public String toString() {
         return "Article{" +
@@ -95,6 +106,7 @@ public class Article {
                 ", createdAt=" + createdAt +
                 ", deleted=" + deleted +
                 ", user=" + user +
+                ", tag=" + tag +
                 '}';
     }
 }
