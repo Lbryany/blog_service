@@ -20,6 +20,8 @@ public interface ArticleDao {
      */
     int increaseClickCount(long articleId);
 
+    int createArticle(Article article);
+
 
 
 

@@ -14,4 +14,17 @@
         SELECT * FROM bryanzzz_tag WHERE user_id = #{userId};
     </select>
 
+    <insert id="createTag" parameterType="org.bryanzzz.entity.Tag">
+        INSERT INTO bryanzzz_tag
+        ( `tag_name`, `user_id`, created_at)
+        VALUES
+        ( #{tagName}, #{userId}, NOW());
+    </insert>
+
+    <insert id="createArticle">
+        INSERT INTO bryanzzz_article_tag
+        ( `article_id`, `tag_id`, created_at)
+        VALUES
+        ( #{articleId}, #{tagId}, NOW());
+    </insert>
 </mapper>

@@ -8,7 +8,7 @@ public class Tag {
 
     private String tagName;
 
-    private User user;
+    private long userId;
 
     private Date createdAt;
 
@@ -28,12 +28,12 @@ public class Tag {
         this.tagName = tagName;
     }
 
-    public User getUser() {
-        return user;
+    public long getUserId() {
+        return userId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserId(long userId) {
+        this.userId = userId;
     }
 
     public Date getCreatedAt() {
@@ -49,7 +49,7 @@ public class Tag {
         return "Tag{" +
                 "tagId=" + tagId +
                 ", tagName='" + tagName + '\'' +
-                ", user=" + user +
+                ", userId=" + userId +
                 ", createdAt=" + createdAt +
                 '}';
     }

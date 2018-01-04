@@ -16,4 +16,11 @@
         LIMIT #{offset},#{limit}
     </select>
 
+    <insert id="createArticle" parameterType="org.bryanzzz.entity.Article">
+        INSERT INTO bryanzzz_article
+            ( `title`, `description`, `content`, `user_id`, created_at)
+        VALUES
+            ( #{title}, #{description}, #{content}, #{userId}, NOW());
+    </insert>
+
 </mapper>

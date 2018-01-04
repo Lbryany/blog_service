@@ -22,14 +22,18 @@ public interface ArticleService {
      * 文章详情接口
      * @return Article
      */
-    Article getArticle(long articleId);
+    ArticleDetail getArticle(long articleId);
 
     /**
      *  创建文章
-     * @param article
+     * @param articleDetail
      * @return
      */
-    int createArticle(Article article);
+    int createArticle(ArticleDetail articleDetail);
+
+    int updateArticle(ArticleDetail articleDetail);
+
+    int delArticle(long articleId);
 
     /**
      * 创建标签
@@ -43,6 +47,6 @@ public interface ArticleService {
      * @param tagId
      * @return
      */
-    List<Article> getArticleByTagId(long tagId);
+    List<ArticleDetail> getArticleByTagId(long tagId);
 
 }

@@ -19,9 +19,8 @@ public class Article {
 
     private int deleted;
 
-    private User user;
+    private long userId;
 
-    private List<Tag> tag;
 
     public long getArticleId() {
         return articleId;
@@ -79,20 +78,12 @@ public class Article {
         this.deleted = deleted;
     }
 
-    public User getUser() {
-        return user;
+    public long getUserId() {
+        return userId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public List<Tag> getTag() {
-        return tag;
-    }
-
-    public void setTag(List<Tag> tag) {
-        this.tag = tag;
+    public void setUserId(long userId) {
+        this.userId = userId;
     }
 
     @Override
@@ -105,8 +96,7 @@ public class Article {
                 ", clickCount=" + clickCount +
                 ", createdAt=" + createdAt +
                 ", deleted=" + deleted +
-                ", user=" + user +
-                ", tag=" + tag +
+                ", userId=" + userId +
                 '}';
     }
 }
