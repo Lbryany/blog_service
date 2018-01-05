@@ -15,6 +15,8 @@ public interface TagDao {
 
     int createTagRelation(List<Long> tagId, long articleId);
 
+    int getTagCountByTagId(List<Long> tagId);
+
 
 
 }

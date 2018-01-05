@@ -30,4 +30,11 @@
         </foreach>;
 
     </insert>
+
+    <select id="getTagCountByTagId" parameterType="java.util.List" resultType="int">
+        SELECT count(tag_id) FROM bryanzzz_tag WHERE tag_id IN
+        <foreach collection="list" item="tag" index="index" separator="," open="(" close=")">
+            #{tag}
+        </foreach>;
+    </select>
 </mapper>
