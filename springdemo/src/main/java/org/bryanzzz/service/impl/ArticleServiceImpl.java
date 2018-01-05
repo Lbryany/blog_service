@@ -36,7 +36,14 @@ public class ArticleServiceImpl implements ArticleService {
         for (Tag tag:articleDetail.getTag()){
             tagIds.add(tag.getTagId());
         }
-        tagDao.createTagRelation(tagIds, articleDetail.getArticle().getArticleId());
+        int tagCount = tagDao.getTagCountByTagId(tagIds);
+        if(tagCount != articleDetail.getTag().size()){
+            //TODO 报错，标签错误
+        }
+        int addRes = tagDao.createTagRelation(tagIds, articleDetail.getArticle().getArticleId());
+        if(addRes == 0){
+            //TODO 报错，新增失败
+        }
         return 0;
     }
 
