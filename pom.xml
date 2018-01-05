@@ -11,7 +11,6 @@
     <modules>
         <module>springstudy</module>
         <module>springdemo</module>
-        <module>test</module>
     </modules>
 
     <properties>
