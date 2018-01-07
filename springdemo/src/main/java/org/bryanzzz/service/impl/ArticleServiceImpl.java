@@ -8,16 +8,21 @@ import org.bryanzzz.entity.Tag;
 import org.bryanzzz.service.ArticleService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class ArticleServiceImpl implements ArticleService {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
+    @Autowired //@Resource @Inject
     private ArticleDao articleDao;
 
+    @Autowired
     private TagDao tagDao;
 
     public List<Article> getArticleList() {
