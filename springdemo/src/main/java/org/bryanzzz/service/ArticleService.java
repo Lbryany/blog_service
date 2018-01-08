@@ -1,6 +1,7 @@
 package org.bryanzzz.service;
 
 import org.bryanzzz.dto.ArticleDetail;
+import org.bryanzzz.dto.ArticleExecution;
 import org.bryanzzz.entity.Article;
 import org.bryanzzz.entity.Tag;
 
@@ -16,7 +17,7 @@ public interface ArticleService {
      * 文章列表接口
      * @return Article
      */
-    List<Article> getArticleList();
+    List<Article> getArticleList(int pageNo, int pageSize);
 
     /**
      * 文章详情接口
@@ -29,11 +30,11 @@ public interface ArticleService {
      * @param articleDetail
      * @return
      */
-    int createArticle(ArticleDetail articleDetail);
+    ArticleExecution createArticle(ArticleDetail articleDetail);
 
-    int updateArticle(ArticleDetail articleDetail);
+    ArticleExecution updateArticle(ArticleDetail articleDetail);
 
-    int delArticle(long articleId);
+    ArticleExecution delArticle(long articleId);
 
     /**
      * 创建标签

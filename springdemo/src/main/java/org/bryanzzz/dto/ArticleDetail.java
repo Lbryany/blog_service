@@ -32,4 +32,12 @@ public class ArticleDetail {
     public void setTag(List<Tag> tag) {
         this.tag = tag;
     }
+
+    @Override
+    public String toString() {
+        return "ArticleDetail{" +
+                "article=" + article +
+                ", tag=" + tag +
+                '}';
+    }
 }

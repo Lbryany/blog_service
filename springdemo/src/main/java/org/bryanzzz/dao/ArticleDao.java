@@ -8,10 +8,9 @@ public interface ArticleDao {
 
     /**
      * 根据用户id查找所有文章
-     * @param userId
      * @return
      */
-    List<Article> getAll(long userId, int offset, int limit);
+    List<Article> getAll(int offset, int limit);
 
     /**
      * 更新点击量
