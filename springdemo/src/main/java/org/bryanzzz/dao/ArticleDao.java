@@ -1,6 +1,7 @@
 package org.bryanzzz.dao;
 
 import org.bryanzzz.entity.Article;
+import org.bryanzzz.entity.Tag;
 
 import java.util.List;
 
@@ -20,6 +21,7 @@ public interface ArticleDao {
     int increaseClickCount(long articleId);
 
     int createArticle(Article article);
+
 
 
 

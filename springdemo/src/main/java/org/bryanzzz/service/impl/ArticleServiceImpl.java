@@ -35,6 +35,8 @@ public class ArticleServiceImpl implements ArticleService {
         for(Article article:articles){
             articleIds.add(article.getArticleId());
         }
+        List<Tag> tags = tagDao.getByArticleIds(articleIds);
+        //TODO 待用stream解决 list to map 转换（好好学stream）
         return null;
     }
 

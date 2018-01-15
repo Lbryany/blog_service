@@ -37,4 +37,16 @@
             #{tag}
         </foreach>;
     </select>
+
+    <select id="getByArticleIds" parameterType="java.util.List" resultType="org.bryanzzz.entity.Tag">
+        SELECT
+        a.article_id,
+        b.*
+        FROM bryanzzz_article_tag a, bryanzzz_tag b
+        WHERE a.tag_id = b.tag_id
+        AND a.article_id IN
+        <foreach collection="list" item="tagId" index="index" separator="," open="(" close=")">
+            #{tagId}
+        </foreach>
+    </select>
 </mapper>

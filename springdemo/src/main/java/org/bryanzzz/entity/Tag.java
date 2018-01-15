@@ -12,6 +12,16 @@ public class Tag {
 
     private Date createdAt;
 
+    private long articleId;
+
+    public long getArticleId() {
+        return articleId;
+    }
+
+    public void setArticleId(long articleId) {
+        this.articleId = articleId;
+    }
+
     public long getTagId() {
         return tagId;
     }

@@ -17,6 +17,7 @@ public interface TagDao {
 
     int getTagCountByTagId(List<Long> tagId);
 
+    List<Tag> getByArticleIds(List<Long> articleIds);
 
 
 }

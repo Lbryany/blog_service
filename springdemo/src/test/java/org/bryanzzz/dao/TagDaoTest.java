@@ -39,5 +39,15 @@ public class TagDaoTest {
     }
 
 
+    @Test
+    public void testGetByArticleIds() throws Exception{
+        List<Long> ids = new ArrayList<Long>();
+        for(Long i = 1000L; i <= 1004; i++){
+            ids.add(i);
+        }
+        List<Tag> tags= tagDao.getByArticleIds(ids);
+        System.out.println(tags);
+    }
+
 
 }
