@@ -28,9 +28,13 @@ public class ArticleServiceImpl implements ArticleService {
     @Autowired
     private TagDao tagDao;
 
-    public List<Article> getArticleList(int pageNo, int pageSize) {
+    public List<ArticleDetail> getArticleList(int pageNo, int pageSize) {
         int offset = (pageNo-1)*pageSize;
         List<Article> articles = articleDao.getAll(offset,pageSize);
+        List<Long> articleIds = new ArrayList<Long>();
+        for(Article article:articles){
+            articleIds.add(article.getArticleId());
+        }
         return null;
     }
 

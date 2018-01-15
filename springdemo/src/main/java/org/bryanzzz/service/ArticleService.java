@@ -17,7 +17,7 @@ public interface ArticleService {
      * 文章列表接口
      * @return Article
      */
-    List<Article> getArticleList(int pageNo, int pageSize);
+    List<ArticleDetail> getArticleList(int pageNo, int pageSize);
 
     /**
      * 文章详情接口
