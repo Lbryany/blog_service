@@ -79,17 +79,19 @@ public class ArticleServiceImpl implements ArticleService {
         return new ArticleExecution(addRes, ArticleStateEnums.SUCCESS);
     }
 
-    public ArticleExecution updateArticle(ArticleDetail articleDetail) {
-        return new ArticleExecution(ArticleStateEnums.SUCCESS);
+    public ArticleExecution updateArticle(Article article) {
+        int updateRes = articleDao.updateArticle(article);
+        if(updateRes == 0){
+            //报错，新增失败
+            throw new ArticleException("更新失败");
+        }
+        return new ArticleExecution(updateRes, ArticleStateEnums.SUCCESS);
     }
 
     public ArticleExecution delArticle(long articleId) {
         return new ArticleExecution(ArticleStateEnums.SUCCESS);
     }
 
-    public int createTag(Tag tag) {
-        return 0;
-    }
 
     public List<ArticleDetail> getArticleByTagId(long tagId) {
         return null;

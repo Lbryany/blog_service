@@ -32,16 +32,10 @@ public interface ArticleService {
      */
     ArticleExecution createArticle(ArticleDetail articleDetail);
 
-    ArticleExecution updateArticle(ArticleDetail articleDetail);
+    ArticleExecution updateArticle(Article article);
 
     ArticleExecution delArticle(long articleId);
 
-    /**
-     * 创建标签
-     * @param tag
-     * @return
-     */
-    int createTag(Tag tag);
 
     /**
      * 按照标签获取文章

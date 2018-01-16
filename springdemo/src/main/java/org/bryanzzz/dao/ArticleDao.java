@@ -24,6 +24,8 @@ public interface ArticleDao {
 
     int createArticle(Article article);
 
+    int updateArticle(Article article);
+
 
 
 

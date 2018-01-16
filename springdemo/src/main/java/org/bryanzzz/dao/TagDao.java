@@ -1,6 +1,5 @@
 package org.bryanzzz.dao;
 
-import org.bryanzzz.entity.Article;
 import org.bryanzzz.entity.Tag;
 
 import java.util.List;
@@ -18,6 +17,14 @@ public interface TagDao {
     int getTagCountByTagId(List<Long> tagId);
 
     List<Tag> getByArticleIds(List<Long> articleIds);
+
+    int deleteTag(long tagId);
+
+    int addTagToArticle(long articleId, long tagId);
+
+    int removeTagToArticle(long articleId, long tagId);
+
+    Tag getTagByTagId(long tagId);
 
 
 }

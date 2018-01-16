@@ -21,7 +21,7 @@
         ( #{tagName}, #{userId}, NOW());
     </insert>
 
-    <insert id="createArticle">
+    <insert id="createTagRelation">
         INSERT INTO bryanzzz_article_tag
         ( `article_id`, `tag_id`, created_at)
         VALUES
@@ -47,6 +47,26 @@
         AND a.article_id IN
         <foreach collection="list" item="tagId" index="index" separator="," open="(" close=")">
             #{tagId}
-        </foreach>
+        </foreach>;
     </select>
+
+    <delete id="deleteTag">
+        DELETE bryanzzz_tag, bryanzzz_article_tag  FROM bryanzzz_tag a, bryanzzz_article_tag b
+        WHERE a.tag_id = b.tag_id AND a.tag_id = #{tagId};
+    </delete>
+
+    <select id="getTagByTagId" resultType="org.bryanzzz.entity.Tag">
+        SELECT * FROM bryanzzz_tag WHERE tag_id = #{tagId};
+    </select>
+
+    <insert id="addTagToArticle">
+        INSERT INTO bryanzzz_article_tag
+        ( `article_id`, `tag_id`, created_at)
+        VALUES
+            ( #{articleId}, #{tag}, NOW());
+    </insert>
+
+    <delete id="removeTagToArticle">
+        DELETE FROM bryanzzz_article_tag WHERE article_id = #{articleId} AND tag_id = #{tagId};
+    </delete>
 </mapper>

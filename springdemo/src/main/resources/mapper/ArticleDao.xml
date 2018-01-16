@@ -28,4 +28,19 @@
         WHERE article_id = #{articleId} AND deleted = 0;
     </select>
 
+    <update id="updateArticle" parameterType="org.bryanzzz.entity.Article">
+        UPDATE bryanzzz_article
+        <set>
+            <if test="title != null">
+              title = #{title},
+            </if>
+            <if test="description != null">
+                description = #{description},
+            </if>
+            <if test="content != null">
+                content = #{content},
+            </if>
+        </set>
+        WHERE article_id = #{articleId};
+    </update>
 </mapper>

@@ -49,5 +49,11 @@ public class TagDaoTest {
         System.out.println(tags);
     }
 
+    @Test
+    public void testGetTagById() throws Exception{
+        Long id = 1L;
+        Tag tag = tagDao.getTagByTagId(id);
+        System.out.println(tag);
+    }
 
 }
