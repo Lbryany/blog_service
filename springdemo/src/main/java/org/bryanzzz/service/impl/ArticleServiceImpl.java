@@ -34,6 +34,9 @@ public class ArticleServiceImpl implements ArticleService {
         int offset = (pageNo-1)*pageSize;
         List<Article> articles = articleDao.getAll(offset,pageSize);
         List<Long> articleIds = new ArrayList<>();
+        if(articles == null){
+            throw new ArticleException("文章为空");
+        }
         for(Article article:articles){
             articleIds.add(article.getArticleId());
         }
@@ -49,7 +52,10 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     public ArticleDetail getArticle(long articleId) {
-        return null;
+        Article article = articleDao.getArtilceById(articleId);
+        List<Tag> tags = tagDao.getTagByArticle(articleId);
+        ArticleDetail articleDetail = new ArticleDetail(article, tags);
+        return articleDetail;
     }
 
     public ArticleExecution createArticle(ArticleDetail articleDetail) {

@@ -12,7 +12,7 @@
 
     <!--分页获取用户文章-->
     <select id="getAll" resultType="org.bryanzzz.entity.Article">
-        SELECT * FROM bryanzzz_article ORDER BY created_at DESC
+        SELECT * FROM bryanzzz_article WHERE deleted = 0 ORDER BY created_at DESC
         LIMIT #{offset},#{limit}
     </select>
 
@@ -22,5 +22,10 @@
         VALUES
             ( #{title}, #{description}, #{content}, #{userId}, NOW());
     </insert>
+
+    <select id="getArtilceById">
+        SELECT * FROM bryanzzz_article
+        WHERE article_id = #{articleId} AND deleted = 0;
+    </select>
 
 </mapper>

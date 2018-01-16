@@ -13,6 +13,8 @@ public interface ArticleDao {
      */
     List<Article> getAll(int offset, int limit);
 
+    Article getArtilceById(long articleId);
+
     /**
      * 更新点击量
      * @param articleId
