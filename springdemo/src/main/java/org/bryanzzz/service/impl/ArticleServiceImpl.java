@@ -93,7 +93,8 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
 
-    public List<ArticleDetail> getArticleByTagId(long tagId) {
-        return null;
+    public List<Article> getArticleByTagId(long tagId) {
+        List<Article> articles = articleDao.getArticleByTagId(tagId);
+        return articles;
     }
 }

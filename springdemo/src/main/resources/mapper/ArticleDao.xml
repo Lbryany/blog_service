@@ -43,4 +43,14 @@
         </set>
         WHERE article_id = #{articleId};
     </update>
+
+    <select id="getArticleByTagId" resultType="org.bryanzzz.entity.Article">
+        SELECT
+            a.article_id,
+            a.title,
+            a.content,
+            a.description,
+            a.created_at
+        FROM bryanzzz_article a, bryanzzz_article_tag t WHERE t.tag_id = #{tagId} AND a.deleted = 0;
+    </select>
 </mapper>

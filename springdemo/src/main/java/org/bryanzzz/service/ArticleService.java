@@ -3,7 +3,6 @@ package org.bryanzzz.service;
 import org.bryanzzz.dto.ArticleDetail;
 import org.bryanzzz.dto.ArticleExecution;
 import org.bryanzzz.entity.Article;
-import org.bryanzzz.entity.Tag;
 
 import java.util.List;
 
@@ -42,6 +41,6 @@ public interface ArticleService {
      * @param tagId
      * @return
      */
-    List<ArticleDetail> getArticleByTagId(long tagId);
+    List<Article> getArticleByTagId(long tagId);
 
 }

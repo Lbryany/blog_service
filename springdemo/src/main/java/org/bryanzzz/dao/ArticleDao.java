@@ -26,7 +26,9 @@ public interface ArticleDao {
 
     int updateArticle(Article article);
 
-
+    List<Article> getArticleByTagId(long tagId);
+    //TODO 重载
+//    List<Article> getArticleByTagId(long tagId, int offset, int limit);
 
 
 
