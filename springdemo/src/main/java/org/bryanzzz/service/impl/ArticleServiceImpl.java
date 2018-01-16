@@ -16,6 +16,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 public class ArticleServiceImpl implements ArticleService {
@@ -31,13 +33,19 @@ public class ArticleServiceImpl implements ArticleService {
     public List<ArticleDetail> getArticleList(int pageNo, int pageSize) {
         int offset = (pageNo-1)*pageSize;
         List<Article> articles = articleDao.getAll(offset,pageSize);
-        List<Long> articleIds = new ArrayList<Long>();
+        List<Long> articleIds = new ArrayList<>();
         for(Article article:articles){
             articleIds.add(article.getArticleId());
         }
         List<Tag> tags = tagDao.getByArticleIds(articleIds);
-        //TODO 待用stream解决 list to map 转换（好好学stream）
-        return null;
+        //用stream解决 list to map 转换（好好学stream）
+        Map<Long, List<Tag>> tagsMap = tags.stream().filter(tag -> tag.getTagId() != 0).collect(Collectors.groupingBy(Tag::getArticleId));
+        List<ArticleDetail> articleRes = new ArrayList<>();
+        for(Article article:articles){
+            ArticleDetail articleDetail = new ArticleDetail(article, tagsMap.get(article.getArticleId()));
+            articleRes.add(articleDetail);
+        }
+        return articleRes;
     }
 
     public ArticleDetail getArticle(long articleId) {
@@ -47,7 +55,7 @@ public class ArticleServiceImpl implements ArticleService {
     public ArticleExecution createArticle(ArticleDetail articleDetail) {
         articleDao.createArticle(articleDetail.getArticle());
         //构造tagId  List
-        List<Long> tagIds = new ArrayList<Long>();
+        List<Long> tagIds = new ArrayList<>();
         for (Tag tag:articleDetail.getTag()){
             tagIds.add(tag.getTagId());
         }
