@@ -22,14 +22,13 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(name = "/login", method = RequestMethod.GET)
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
     @ResponseBody
     public BlogResult<UserExecution> testLogin(){
-        logger.error("aasdasd");
         return new BlogResult<UserExecution>(false, "2123123");
     }
 
-    @RequestMapping(name = "/login", method = RequestMethod.POST)
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
     public BlogResult<UserExecution> login(@RequestBody User user){
         BlogResult<UserExecution> result;
