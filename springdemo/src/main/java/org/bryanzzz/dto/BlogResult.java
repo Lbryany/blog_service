@@ -2,28 +2,28 @@ package org.bryanzzz.dto;
 
 public class BlogResult<T> {
 
-    private boolean success;
+    private Integer code;
 
     private T data;
 
-    private String error;
+    private String msg;
 
-    public BlogResult(boolean success, T data) {
-        this.success = success;
+    public BlogResult(Integer code, T data) {
+        this.code = code;
         this.data = data;
     }
 
-    public BlogResult(boolean success, String error) {
-        this.success = success;
-        this.error = error;
+    public BlogResult(Integer code, String error) {
+        this.code = code;
+        this.msg = error;
     }
 
-    public boolean isSuccess() {
-        return success;
+    public Integer getCode() {
+        return code;
     }
 
-    public void setSuccess(boolean success) {
-        this.success = success;
+    public void setCode(Integer code) {
+        this.code = code;
     }
 
     public T getData() {
@@ -34,11 +34,11 @@ public class BlogResult<T> {
         this.data = data;
     }
 
-    public String getError() {
-        return error;
+    public String getMsg() {
+        return msg;
     }
 
-    public void setError(String error) {
-        this.error = error;
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 }
