@@ -1,6 +1,7 @@
 package org.bryanzzz.service.impl;
 
 import org.apache.commons.lang.StringUtils;
+import org.bryanzzz.common.JsonWebToken;
 import org.bryanzzz.dao.UserDao;
 import org.bryanzzz.dto.UserExecution;
 import org.bryanzzz.entity.User;
@@ -18,6 +19,8 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserDao userDao;
 
+
+    @Override
     public UserExecution userLogin(User user) {
         String username = user.getUsername();
         User userRes = userDao.queryByUsername(username);
@@ -26,7 +29,9 @@ public class UserServiceImpl implements UserService {
             return new UserExecution(UserStateEnums.FAIL);
         }
         if(userRes.getPassword().equals(md5Pwd)){
-            return new UserExecution(userRes.getUserId(), UserStateEnums.SUCCESS);
+            String uid = String.valueOf(userRes.getUserId());
+            String token = JsonWebToken.createJWT(uid, "LbryanyBlog", 60*60*1000);
+            return new UserExecution(token, UserStateEnums.SUCCESS);
         }else{
             return new UserExecution(UserStateEnums.FAIL);
         }

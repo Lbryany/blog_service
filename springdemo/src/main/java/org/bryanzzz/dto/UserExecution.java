@@ -4,12 +4,12 @@ import org.bryanzzz.enums.UserStateEnums;
 
 public class UserExecution {
 
-    private long userId;
+    private String token;
 
     private UserStateEnums userStateEnums;
 
-    public long getUserId() {
-        return userId;
+    public String getToken() {
+        return token;
     }
 
     public UserStateEnums getUserStateEnums() {
@@ -19,15 +19,16 @@ public class UserExecution {
     @Override
     public String toString() {
         return "UserExecution{" +
-                "userId=" + userId +
+                "token='" + token + '\'' +
                 ", userStateEnums=" + userStateEnums +
                 '}';
     }
 
-    public UserExecution(long userId, UserStateEnums userStateEnums) {
-        this.userId = userId;
+    public UserExecution(String token, UserStateEnums userStateEnums) {
+        this.token = token;
         this.userStateEnums = userStateEnums;
     }
+
 
     public UserExecution(UserStateEnums userStateEnums) {
         this.userStateEnums = userStateEnums;

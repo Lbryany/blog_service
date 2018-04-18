@@ -1,5 +1,7 @@
 package org.bryanzzz.service;
 
+import io.jsonwebtoken.Claims;
+import org.bryanzzz.common.JsonWebToken;
 import org.bryanzzz.dto.UserExecution;
 import org.bryanzzz.entity.User;
 import org.junit.Test;
@@ -26,9 +28,10 @@ public class UserServiceTest {
     public void testLogin() throws Exception{
         User testUser = new User();
         testUser.setUsername("lybryan1994cn");
-        testUser.setPassword("1111111");
+        testUser.setPassword("489415783b");
         UserExecution userExecution = userService.userLogin(testUser);
-        logger.info("User={}", userExecution);
+        Claims jwt = JsonWebToken.parseJWT(userExecution.getToken());
+        logger.info("User={}", jwt);
     }
 
 }
