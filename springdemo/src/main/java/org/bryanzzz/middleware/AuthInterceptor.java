@@ -16,7 +16,6 @@ public class AuthInterceptor extends HandlerInterceptorAdapter{
             if(token == null){
                 return false;
             }
-//        }
 
         return true;
     }
