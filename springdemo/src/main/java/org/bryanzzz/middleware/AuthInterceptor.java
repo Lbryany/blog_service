@@ -11,19 +11,14 @@ public class AuthInterceptor extends HandlerInterceptorAdapter{
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
         //TODO 判断请求的是否是需要权限的页面，比如 发布 ，后台管理 ，登出 页面
-        if(request.getServletPath().startsWith("admin")){
+//        if(request.getServletPath().startsWith("user")){
+            //获取token进行判断
+            String token = request.getParameter("token");
 
-        }
-
-
-        //获取token进行判断
-        String token = request.getParameter("token");
-
-        if(token == null){
-            return false;
-        }
-
-
+            if(token == null){
+                return false;
+            }
+//        }
 
         return true;
     }

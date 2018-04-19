@@ -9,6 +9,13 @@
     <!--加入对静态资源的处理-->
     <mvc:default-servlet-handler />
 
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/user/**"/>
+            <bean class="org.bryanzzz.middleware.AuthInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
     <context:component-scan base-package="org.bryanzzz.controller"/>
 
 </beans>
