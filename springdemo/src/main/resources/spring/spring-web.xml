@@ -9,6 +9,7 @@
     <!--加入对静态资源的处理-->
     <mvc:default-servlet-handler />
 
+    <!--拦截器测试，暂时定用拦截器-->
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/user/**"/>
