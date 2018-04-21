@@ -12,7 +12,8 @@
     <!--拦截器测试，暂时定用拦截器-->
     <mvc:interceptors>
         <mvc:interceptor>
-            <mvc:mapping path="/user/**"/>
+            <mvc:mapping path="/admin/**"/>
+            <mvc:exclude-mapping path="/admin/login" />
             <bean class="org.bryanzzz.middleware.AuthInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>

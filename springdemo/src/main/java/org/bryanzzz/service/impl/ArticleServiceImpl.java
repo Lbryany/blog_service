@@ -30,6 +30,7 @@ public class ArticleServiceImpl implements ArticleService {
     @Autowired
     private TagDao tagDao;
 
+    @Override
     public List<ArticleDetail> getArticleList(int pageNo, int pageSize) {
         int offset = (pageNo-1)*pageSize;
         List<Article> articles = articleDao.getAll(offset,pageSize);
@@ -51,6 +52,7 @@ public class ArticleServiceImpl implements ArticleService {
         return articleRes;
     }
 
+    @Override
     public ArticleDetail getArticle(long articleId) {
         Article article = articleDao.getArtilceById(articleId);
         List<Tag> tags = tagDao.getTagByArticle(articleId);
@@ -58,6 +60,7 @@ public class ArticleServiceImpl implements ArticleService {
         return articleDetail;
     }
 
+    @Override
     public ArticleExecution createArticle(ArticleDetail articleDetail) {
         articleDao.createArticle(articleDetail.getArticle());
         //构造tagId  List
@@ -79,6 +82,7 @@ public class ArticleServiceImpl implements ArticleService {
         return new ArticleExecution(addRes, ArticleStateEnums.SUCCESS);
     }
 
+    @Override
     public ArticleExecution updateArticle(Article article) {
         int updateRes = articleDao.updateArticle(article);
         if(updateRes == 0){
@@ -88,11 +92,13 @@ public class ArticleServiceImpl implements ArticleService {
         return new ArticleExecution(updateRes, ArticleStateEnums.SUCCESS);
     }
 
+    @Override
     public ArticleExecution delArticle(long articleId) {
         return new ArticleExecution(ArticleStateEnums.SUCCESS);
     }
 
 
+    @Override
     public List<Article> getArticleByTagId(long tagId) {
         List<Article> articles = articleDao.getArticleByTagId(tagId);
         return articles;

@@ -30,8 +30,7 @@ public class UserServiceTest {
         testUser.setUsername("lybryan1994cn");
         testUser.setPassword("489415783b");
         UserExecution userExecution = userService.userLogin(testUser);
-        Claims jwt = JsonWebToken.parseJWT(userExecution.getToken());
-        logger.info("User={}", jwt);
+        logger.info("User={}", userExecution);
     }
 
 }

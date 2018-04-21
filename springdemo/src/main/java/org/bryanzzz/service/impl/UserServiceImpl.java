@@ -29,9 +29,10 @@ public class UserServiceImpl implements UserService {
             return new UserExecution(UserStateEnums.FAIL);
         }
         if(userRes.getPassword().equals(md5Pwd)){
-            String uid = String.valueOf(userRes.getUserId());
-            String token = JsonWebToken.createJWT(uid, "LbryanyBlog", 60*60*1000);
-            return new UserExecution(token, UserStateEnums.SUCCESS);
+            long uid = userRes.getUserId();
+            // 暂时屏蔽jwt，使用session实现保持登录态
+//            String token = JsonWebToken.createJWT(uid, "LbryanyBlog", 60*60*1000);
+            return new UserExecution(uid, UserStateEnums.SUCCESS);
         }else{
             return new UserExecution(UserStateEnums.FAIL);
         }
